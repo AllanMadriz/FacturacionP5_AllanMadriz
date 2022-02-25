@@ -16,7 +16,7 @@ namespace FacturacionP5_AllanMadriz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Formularios.FrmMDIPrincipal());
         }
     }
 }
