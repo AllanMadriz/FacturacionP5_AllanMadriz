@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    class Usuario
+    public class Usuario
     {
         public int IDUsuario { get; set; }
 
@@ -77,6 +77,10 @@ namespace Logica.Models
         public DataTable ListarActivos()
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
 
             return R;
         }

@@ -31,9 +31,6 @@ namespace FacturacionP5_AllanMadriz.Formularios
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mantenimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,12 +38,14 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.gestionDeEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gestionDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobroFacturasDeCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.notasDeCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.registroDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionPorRangoDeFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionPorUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +55,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.listaDeImpuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeCategoriasDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(112, 450);
+            this.menuStrip1.Size = new System.Drawing.Size(126, 450);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,43 +85,8 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.toolStripSeparator2,
             this.gestionDeProveedoresToolStripMenuItem});
             this.mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
-            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(99, 19);
+            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.mantenimientosToolStripMenuItem.Text = "Mantenimientos";
-            // 
-            // procesosToolStripMenuItem
-            // 
-            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturacionToolStripMenuItem,
-            this.cobroFacturasDeCreditoToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.notasDeCreditoToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.registroDeCompraToolStripMenuItem});
-            this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
-            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(99, 19);
-            this.procesosToolStripMenuItem.Text = "Procesos";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturacionPorRangoDeFechasToolStripMenuItem,
-            this.facturacionPorClienteToolStripMenuItem,
-            this.facturacionPorUsuarioToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.listadoDeCLientesToolStripMenuItem,
-            this.listadoDeUsuariosToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.listaDeImpuestosToolStripMenuItem,
-            this.listaDeCategoriasDeProductosToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(99, 19);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // acercaDeToolStripMenuItem
-            // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(99, 19);
-            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             // 
             // gestionDeClientesToolStripMenuItem
             // 
@@ -134,6 +99,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // gestionDeProductosToolStripMenuItem
             // 
@@ -163,6 +129,19 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.gestionDeProveedoresToolStripMenuItem.Name = "gestionDeProveedoresToolStripMenuItem";
             this.gestionDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.gestionDeProveedoresToolStripMenuItem.Text = "Gestion de Proveedores";
+            // 
+            // procesosToolStripMenuItem
+            // 
+            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facturacionToolStripMenuItem,
+            this.cobroFacturasDeCreditoToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.notasDeCreditoToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.registroDeCompraToolStripMenuItem});
+            this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
+            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.procesosToolStripMenuItem.Text = "Procesos";
             // 
             // facturacionToolStripMenuItem
             // 
@@ -200,6 +179,22 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.registroDeCompraToolStripMenuItem.Name = "registroDeCompraToolStripMenuItem";
             this.registroDeCompraToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.registroDeCompraToolStripMenuItem.Text = "Registro de Compra";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facturacionPorRangoDeFechasToolStripMenuItem,
+            this.facturacionPorClienteToolStripMenuItem,
+            this.facturacionPorUsuarioToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.listadoDeCLientesToolStripMenuItem,
+            this.listadoDeUsuariosToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.listaDeImpuestosToolStripMenuItem,
+            this.listaDeCategoriasDeProductosToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // facturacionPorRangoDeFechasToolStripMenuItem
             // 
@@ -252,6 +247,12 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.listaDeCategoriasDeProductosToolStripMenuItem.Name = "listaDeCategoriasDeProductosToolStripMenuItem";
             this.listaDeCategoriasDeProductosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.listaDeCategoriasDeProductosToolStripMenuItem.Text = "Lista de Categorias de Productos";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             // 
             // FrmMDIPrincipal
             // 
