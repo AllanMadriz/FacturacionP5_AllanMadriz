@@ -35,7 +35,8 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.cNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDetalles = new System.Windows.Forms.GroupBox();
+            this.btnVerPassword = new System.Windows.Forms.Button();
             this.cboxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.btnLimpiarForm = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbDetalles.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvListaUsuarios
@@ -86,6 +87,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.dgvListaUsuarios.Size = new System.Drawing.Size(776, 201);
             this.dgvListaUsuarios.TabIndex = 0;
             this.dgvListaUsuarios.VirtualMode = true;
+            this.dgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsuarios_CellClick);
             this.dgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvListaUsuarios_DataBindingComplete);
             // 
             // cIDUsuario
@@ -128,31 +130,44 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.cRol.Name = "cRol";
             this.cRol.ReadOnly = true;
             // 
-            // groupBox1
+            // gbDetalles
             // 
-            this.groupBox1.Controls.Add(this.cboxTipoUsuario);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtEmailRespaldo);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtTelefono);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtCedula);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 290);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 257);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detalle del Usuario";
+            this.gbDetalles.Controls.Add(this.btnVerPassword);
+            this.gbDetalles.Controls.Add(this.cboxTipoUsuario);
+            this.gbDetalles.Controls.Add(this.label9);
+            this.gbDetalles.Controls.Add(this.txtPassword);
+            this.gbDetalles.Controls.Add(this.label8);
+            this.gbDetalles.Controls.Add(this.txtEmailRespaldo);
+            this.gbDetalles.Controls.Add(this.label7);
+            this.gbDetalles.Controls.Add(this.txtTelefono);
+            this.gbDetalles.Controls.Add(this.label6);
+            this.gbDetalles.Controls.Add(this.txtCedula);
+            this.gbDetalles.Controls.Add(this.label5);
+            this.gbDetalles.Controls.Add(this.txtEmail);
+            this.gbDetalles.Controls.Add(this.label4);
+            this.gbDetalles.Controls.Add(this.txtNombre);
+            this.gbDetalles.Controls.Add(this.label3);
+            this.gbDetalles.Controls.Add(this.txtCodigo);
+            this.gbDetalles.Controls.Add(this.label2);
+            this.gbDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDetalles.Location = new System.Drawing.Point(12, 290);
+            this.gbDetalles.Name = "gbDetalles";
+            this.gbDetalles.Size = new System.Drawing.Size(776, 257);
+            this.gbDetalles.TabIndex = 1;
+            this.gbDetalles.TabStop = false;
+            this.gbDetalles.Text = "Detalle del Usuario";
+            // 
+            // btnVerPassword
+            // 
+            this.btnVerPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerPassword.Location = new System.Drawing.Point(727, 130);
+            this.btnVerPassword.Name = "btnVerPassword";
+            this.btnVerPassword.Size = new System.Drawing.Size(36, 23);
+            this.btnVerPassword.TabIndex = 16;
+            this.btnVerPassword.Text = "Ver";
+            this.btnVerPassword.UseVisualStyleBackColor = true;
+            this.btnVerPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVerPassword_MouseDown);
+            this.btnVerPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnVerPassword_MouseUp);
             // 
             // cboxTipoUsuario
             // 
@@ -176,9 +191,11 @@ namespace FacturacionP5_AllanMadriz.Formularios
             // 
             this.txtPassword.Location = new System.Drawing.Point(498, 130);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(265, 22);
+            this.txtPassword.Size = new System.Drawing.Size(223, 22);
             this.txtPassword.TabIndex = 13;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // label8
             // 
@@ -195,6 +212,8 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.txtEmailRespaldo.Name = "txtEmailRespaldo";
             this.txtEmailRespaldo.Size = new System.Drawing.Size(265, 22);
             this.txtEmailRespaldo.TabIndex = 11;
+            this.txtEmailRespaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmailRespaldo_KeyPress);
+            this.txtEmailRespaldo.Leave += new System.EventHandler(this.txtEmailRespaldo_Leave);
             // 
             // label7
             // 
@@ -211,6 +230,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(265, 22);
             this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label6
             // 
@@ -227,6 +247,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(265, 22);
             this.txtCedula.TabIndex = 7;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label5
             // 
@@ -243,6 +264,8 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 22);
             this.txtEmail.TabIndex = 5;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label4
             // 
@@ -259,6 +282,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(265, 22);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label3
             // 
@@ -336,6 +360,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.cbVerActivos.TabIndex = 9;
             this.cbVerActivos.Text = "Ver Usuarios Activos";
             this.cbVerActivos.UseVisualStyleBackColor = true;
+            this.cbVerActivos.CheckedChanged += new System.EventHandler(this.cbVerActivos_CheckedChanged);
             // 
             // btnEditar
             // 
@@ -349,6 +374,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -362,6 +388,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiarForm
             // 
@@ -375,6 +402,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.btnLimpiarForm.TabIndex = 12;
             this.btnLimpiarForm.Text = "Limpiar Formulario";
             this.btnLimpiarForm.UseVisualStyleBackColor = false;
+            this.btnLimpiarForm.Click += new System.EventHandler(this.btnLimpiarForm_Click);
             // 
             // btnCerrar
             // 
@@ -393,7 +421,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 639);
+            this.ClientSize = new System.Drawing.Size(806, 639);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnLimpiarForm);
             this.Controls.Add(this.btnEliminar);
@@ -402,7 +430,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbDetalles);
             this.Controls.Add(this.dgvListaUsuarios);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
@@ -411,8 +439,8 @@ namespace FacturacionP5_AllanMadriz.Formularios
             this.Text = "Gestion de Usuarios";
             this.Load += new System.EventHandler(this.FrmUsuariosGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbDetalles.ResumeLayout(false);
+            this.gbDetalles.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,7 +449,7 @@ namespace FacturacionP5_AllanMadriz.Formularios
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListaUsuarios;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbDetalles;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscar;
@@ -451,5 +479,6 @@ namespace FacturacionP5_AllanMadriz.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn cRol;
+        private System.Windows.Forms.Button btnVerPassword;
     }
 }
